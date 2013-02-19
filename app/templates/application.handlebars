@@ -1,0 +1,29 @@
+ <div class="container">
+    
+    <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+	<div class="container">
+	<span class="brand">Picgrid</span>
+	<ul class="nav">
+	  <li class="">
+	      {{#linkTo "home" }}<span class="icon-home"></span>{{/linkTo}}
+	  </li>
+	  <li>
+
+	     {{#linkTo "profile"}}<span class="icon-user"></span>{{/linkTo}}
+	  </li>
+	  <li>
+	      {{#linkTo "favorites"}}<span class="icon-heart"></span>{{/linkTo}}
+	  </li>
+	  
+	</ul>
+	</div>
+      </div>
+    </div>
+    
+
+  </div>
+  
+<div id="main" role="main" class="container">
+    {{outlet}}
+</div>
