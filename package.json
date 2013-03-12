@@ -1,0 +1,11 @@
+{
+	"name": "Test",
+	"version": "0.0.1",
+	"dependencies": {
+		"grunt": "0.4.x",
+		"grunt-contrib-coffee": "0.6.x",
+		"grunt-contrib-uglify": "0.1.x",
+		"grunt-contrib-watch": "0.3.x",
+		"grunt-ftp-deploy": "zonak/grunt-ftp-deploy"
+	}
+}

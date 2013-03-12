@@ -1,0 +1,1 @@
+App.HomeController = Em.ObjectController.extend();
