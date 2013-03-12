@@ -28,7 +28,7 @@ module.exports = (grunt) ->
 
 
 
-	grunt.registerTask 'default', 'watch'
-	grunt.registerTask 'gogo', 'uglify'
+	grunt.registerTask 'default', 'coffee'
+	grunt.registerTask 'watch', 'watch'
 	grunt.registerTask 'deploy', ['coffee', 'uglify', 'ftp-deploy']
 
