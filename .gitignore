@@ -43,7 +43,7 @@ Thumbs.db
 www
 node_modules
 dist
-public/js
+public/js/*
 
 # Sensitive information #
 #########################
