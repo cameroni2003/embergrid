@@ -1,7 +1,7 @@
 {
-	"name": "Test",
+	"name": "embergrid",
 	"version": "0.0.1",
-	"dependencies": {
+	"devDependencies": {
 		"grunt": "0.4.x",
 		"grunt-contrib-coffee": "0.6.x",
 		"grunt-contrib-uglify": "0.1.x",

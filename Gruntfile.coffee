@@ -6,15 +6,18 @@ module.exports = (grunt) ->
 	grunt.task.loadNpmTasks 'grunt-ftp-deploy'
 
 	grunt.initConfig
+		pkg: grunt.file.readJSON 'package.json'
 		coffee:
 			options:
 				bare: true
 			compile:
 				src: ['app/main.coffee', 'app/**/*.coffee', 'test.coffee']
-				dest: 'dist/compiled.js'
+				dest: 'public/js/<%= pkg.name %>.js'
 		uglify:
+			options:
+				mangle: false
 			dist:
-				files: 'dist/compiled.min.js': 'dist/compiled.js'
+				files: 'public/js/<%= pkg.name %>.min.js': '<%= coffee.compile.dest %>'
 		watch:
 			files: ['app/**/*.coffee']
 			tasks: ['coffee', 'uglify']
@@ -29,6 +32,7 @@ module.exports = (grunt) ->
 
 
 	grunt.registerTask 'default', 'coffee'
+	grunt.registerTask 'minify', ['coffee', 'uglify']
 	grunt.registerTask 'watch', 'watch'
 	grunt.registerTask 'deploy', ['coffee', 'uglify', 'ftp-deploy']
 
