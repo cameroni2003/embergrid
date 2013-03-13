@@ -12,6 +12,6 @@ To build
 
     grunt
     
-To have it compile as you work
+To spawn a web server that runs on http://localhost:8000 and compiles as you work
 
-    grunt watch
+    grunt connect watch

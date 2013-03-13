@@ -4,6 +4,7 @@ module.exports = (grunt) ->
 	grunt.task.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.task.loadNpmTasks 'grunt-contrib-watch'
 	grunt.task.loadNpmTasks 'grunt-ftp-deploy'
+	grunt.task.loadNpmTasks 'grunt-contrib-connect'
 
 	grunt.initConfig
 		pkg: grunt.file.readJSON 'package.json'
@@ -18,6 +19,10 @@ module.exports = (grunt) ->
 				mangle: false
 			dist:
 				files: 'public/js/<%= pkg.name %>.min.js': '<%= coffee.compile.dest %>'
+		connect:
+			server:
+				options:
+					base: 'public'
 		watch:
 			files: ['app/**/*.coffee']
 			tasks: ['coffee', 'uglify']
@@ -28,11 +33,11 @@ module.exports = (grunt) ->
 					authKey: 'duhKey'
 				src: 'dist'
 				dest: 'app'
+		
 
 
 
 	grunt.registerTask 'default', 'coffee'
 	grunt.registerTask 'minify', ['coffee', 'uglify']
-	grunt.registerTask 'watch', 'watch'
 	grunt.registerTask 'deploy', ['coffee', 'uglify', 'ftp-deploy']
 
