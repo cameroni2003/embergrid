@@ -1,1 +1,1 @@
-App.HomeController = Em.ObjectController.extend();
+App.HomeController = Ember.ObjectController.extend();

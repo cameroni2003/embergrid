@@ -5,6 +5,8 @@ module.exports = (grunt) ->
 	grunt.task.loadNpmTasks 'grunt-contrib-watch'
 	grunt.task.loadNpmTasks 'grunt-ftp-deploy'
 	grunt.task.loadNpmTasks 'grunt-contrib-connect'
+	grunt.task.loadNpmTasks 'grunt-ember-templates'
+
 
 	grunt.initConfig
 		pkg: grunt.file.readJSON 'package.json'
@@ -18,14 +20,25 @@ module.exports = (grunt) ->
 			options:
 				mangle: false
 			dist:
-				files: 'public/js/<%= pkg.name %>.min.js': '<%= coffee.compile.dest %>'
+				files: 'public/js/<%= pkg.name %>.min.js': ['app/vendor/ember.min.js', '<%= coffee.compile.dest %>']
 		connect:
 			server:
 				options:
 					base: 'public'
+		ember_templates:
+			compile:
+				options:
+					templateName: (sourceFile) ->
+						sourceFile.replace 'app/templates/', ''
+				files: 
+					'public/js/templates.js': 'app/templates/*.hbs'
 		watch:
-			files: ['app/**/*.coffee']
-			tasks: ['coffee', 'uglify']
+			src:
+				files: ['app/**/*.coffee']
+				tasks: ['coffee']
+			ember_templates:
+				files: 'app/templates/*.hbs'
+				tasks: 'ember_templates'
 		'ftp-deploy':
 			build:
 				auth: 

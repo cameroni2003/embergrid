@@ -7,7 +7,8 @@
 		"grunt-contrib-uglify": "0.1.x",
 		"grunt-contrib-watch": "0.3.x",
 		"grunt-ftp-deploy": "zonak/grunt-ftp-deploy",
-		"grunt-contrib-connect": "0.2.x"
+		"grunt-contrib-connect": "0.2.x",
+		"grunt-ember-templates": "dgeb/grunt-ember-templates"
 	},
 	"engines": {
 		"node": "~0.8.0"
